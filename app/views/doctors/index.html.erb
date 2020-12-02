@@ -1,0 +1,31 @@
+<div class="apple_pagination">
+    <%= will_paginate @doctors, :container => false %>
+  </div>
+<div id="page-content">
+    <h1 class="text-center mt-4">Doctors</h1>
+    <div class="container">
+  <% @doctors.each do |doctor| %>
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title"><%=link_to doctor.firstName+' '+doctor.lastName, doctor %></h5>
+          <p class="card-text"><%= pluralize(doctor.patients.count, "patient") %></p>
+            <%=link_to "View", doctor,class: "btn btn-success" %>
+          <% if logged_in? && doctor==current_doctor %>
+        
+          <%=link_to "Edit", edit_doctor_path(doctor),class: "btn btn-info" %>
+          <% end %>
+        </div>
+        <div class="card-footer text-muted">
+          <small></small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+<div class="apple_pagination mb-4 mt-4">
+    <%= will_paginate @doctors, :container => false %>
+  </div>

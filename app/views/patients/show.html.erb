@@ -1,0 +1,23 @@
+<h2 class="text-center mt-4"><%= @patient.firstName+' '+@patient.lastName %></h2>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card text-center">
+        <div class="card-header">
+          by <%= @patient.doctor.firstName + ' ' + @patient.doctor.lastName%>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%=simple_format(@patient.description) %></p>
+          <% if logged_in? && @patient.doctor==current_doctor %>
+
+          <%=link_to "Edit", edit_patient_path(@patient),class: "btn btn-info" %>
+          <%=link_to "Delete", patient_path(@patient),class: "btn btn-danger", method: :delete, data: {confirm:"Are U sure?"} %>
+          <% end %>
+        </div>
+        <div class="card-footer text-muted">
+          <small></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

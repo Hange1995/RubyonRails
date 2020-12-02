@@ -1,0 +1,16 @@
+
+<div id="page-content">
+    <div class="container" id="home-container">
+        <div class="jumbotron text-center">
+          <h1 class="display-4">Welcome to Han's Healthcare</h1>
+          <p class="lead">This is web to show the patient and doctor</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <% if !logged_in?%>
+            <%= link_to "Doctor Sign", signup_path,class: "btn btn-success btn-lg" %>
+          <% end %>
+            <a class="btn btn-success btn-lg" href="#" role="button">Patient Sign</a>
+        </div>
+    </div>
+</div>
+
